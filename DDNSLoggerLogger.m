@@ -60,7 +60,7 @@ static Logger *_DDNSLogger_logger = nil;
 
 - (void)setupWithBonjourServiceName:(NSString *)serviceName
 {
-    LoggerSetupBonjour(_DDNSLogger_logger, NULL, (CFStringRef)serviceName);
+    LoggerSetupBonjour(_DDNSLogger_logger, NULL, (__bridge CFStringRef)serviceName);
 }
 
 - (void)logMessage:(DDLogMessage *)logMessage
