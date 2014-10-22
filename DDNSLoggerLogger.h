@@ -7,16 +7,15 @@
 #import "DDLog.h"
 
 @interface DDNSLoggerLogger : DDAbstractLogger <DDLogger>
-{
-}
+
+@property (nonatomic, readonly) BOOL running;
 
 + (DDNSLoggerLogger *)sharedInstance;
 
+/// should setup before `- (void)start`
 - (void)setupWithBonjourServiceName:(NSString *)serviceName;
 
-// Inherited from DDAbstractLogger
-
-// - (id <DDLogFormatter>)logFormatter;
-// - (void)setLogFormatter:(id <DDLogFormatter>)formatter;
+- (void)start;
+- (void)stop;
 
 @end
