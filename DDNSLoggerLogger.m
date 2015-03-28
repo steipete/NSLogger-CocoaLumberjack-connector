@@ -52,25 +52,25 @@ static DDNSLoggerLogger *sharedInstance;
 }
 
 - (void)logMessage:(DDLogMessage *)logMessage {
-    NSString *logMsg = logMessage->logMsg;
+    NSString *logMsg = logMessage.message;
 
-    if (formatter) {
+    if (_logFormatter) {
         // formatting is supported but not encouraged!
-        logMsg = [formatter formatLogMessage:logMessage];
+        logMsg = [_logFormatter formatLogMessage:logMessage];
     }
 
     if (logMsg) {
         int nsloggerLogLevel;
-        switch (logMessage->logFlag) {
+        switch (logMessage.flag) {
                 // NSLogger log levels start a 0, the bigger the number,
                 // the more specific / detailed the trace is meant to be
-            case LOG_FLAG_ERROR: nsloggerLogLevel = 0; break;
-            case LOG_FLAG_WARN: nsloggerLogLevel  = 1; break;
-            case LOG_FLAG_INFO: nsloggerLogLevel  = 2; break;
+            case DDLogLevelError: nsloggerLogLevel = 0; break;
+            case DDLogLevelWarning: nsloggerLogLevel  = 1; break;
+            case DDLogLevelInfo: nsloggerLogLevel  = 2; break;
             default: nsloggerLogLevel             = 3; break;
         }
 
-        LogMessageF(logMessage->file, logMessage->lineNumber, logMessage->function, [logMessage fileName],
+        LogMessageF(logMessage.file, logMessage.line, logMessage.function, logMessage.fileName,
                     nsloggerLogLevel, @"%@", logMsg);
     }
 }
