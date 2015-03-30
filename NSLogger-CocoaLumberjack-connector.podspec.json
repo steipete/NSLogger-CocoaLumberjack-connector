@@ -17,7 +17,7 @@
     "NSLogger": [
     ],
     "CocoaLumberjack": [
-      "'~>2.0'"
+      "~>2.0"
     ]
   },
   "requires_arc": false
