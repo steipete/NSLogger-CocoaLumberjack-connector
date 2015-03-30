@@ -1,6 +1,6 @@
 {
   "name": "NSLogger-CocoaLumberjack-connector",
-  "version": "1.4",
+  "version": "1.5",
   "license": "BSD",
   "summary": "Bridges NSLogger and CocoaLumberjack.",
   "homepage": "https://github.com/steipete/NSLogger-CocoaLumberjack-connector",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/steipete/NSLogger-CocoaLumberjack-connector.git",
-    "tag": "1.4"
+    "tag": "1.5"
   },
   "description": "This is a bridge for the projects http://github.com/robbiehanson/CocoaLumberjack (A general purpose super-fast logging framework) and http://github.com/fpillet/NSLogger (send logs to a client app via network).",
   "source_files": "DDNSLoggerLogger.*",
@@ -17,6 +17,7 @@
     "NSLogger": [
     ],
     "CocoaLumberjack": [
+      "~>2.0"
     ]
   },
   "requires_arc": false
